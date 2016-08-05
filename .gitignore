@@ -5,3 +5,6 @@ shell/api_key
 cabal.sandbox.config
 dist
 scratch
+probs
+sols
+

@@ -48,6 +48,9 @@ type RawProblem = (Polys, Segs)
 mkRp :: Polys -> Segs -> RawProblem
 mkRp = (,)
 
+rpPolys :: RawProblem -> Polys
+rpPolys = fst
+
 type Facet = (Int, [Int])
 
 mkFacet :: Int -> [Int] -> Facet

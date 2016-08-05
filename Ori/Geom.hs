@@ -3,6 +3,7 @@ module Ori.Geom (
     ) where
 
 import Ori.Types
+import Data.List
 
 reflectPt :: Seg -> Pt -> Pt
 reflectPt (Seg p0@(V2 x0 y0) p1) (V2 x y) =
@@ -35,4 +36,18 @@ arePtsOnSameSideOfSeg l p0 p1 = signum (ptRelToSeg l p0) == signum (ptRelToSeg l
 
 ofold :: Seg -> OState -> OState
 ofold = undefined
+
+points :: RawProblem -> [Pt]
+points rp = concat $ map polyPts (polysPolys (rpPolys rp))
+
+bBox :: RawProblem -> (Rat, Rat, Rat, Rat)
+bBox rp = foldl' (\(xn, yn, xx, yx) (V2 x' y') -> (min xn x', min yn y', max xx x', max yx y')) (x, y, x, y) pts
+    where
+        pts = points rp
+        (V2 x y) = head pts
+
+reflEnd :: Seg -> OState -> OState
+reflEnd s (s1, (s2, end)) = (s1, (s2, fmap (fmap f) end))
+    where
+        f = reflectPt s
 
