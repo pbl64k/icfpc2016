@@ -27,3 +27,6 @@ showFacet f = show (facetN f) ++ " " ++ intercalate " " (map show (facetVertices
 showFacets :: Facets -> String
 showFacets fs = show (facetsN fs) ++ "\n" ++ intercalate "\n" (map showFacet (facetsFacets fs))
 
+showOState :: OState -> String
+showOState s = showPoly True (oStatePoly s) ++ "\n" ++ showFacets (oStateFacets s) ++ "\n" ++ showPoly False (oStatePolyEnd s)
+

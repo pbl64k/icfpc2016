@@ -11,5 +11,5 @@ initFacets :: Facets
 initFacets = mkFacets 1 [mkFacet 4 [0, 1, 2, 3]]
 
 initial :: OState
-initial = (initPoly, initFacets)
+initial = (initPoly, (initFacets, initPoly))
 
