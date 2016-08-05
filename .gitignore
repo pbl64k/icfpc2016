@@ -1,4 +1,6 @@
 .*.swp
 secret_password
-api_key
-
+shell/api_key
+.cabal-sandbox
+cabal.sandbox.config
+dist
