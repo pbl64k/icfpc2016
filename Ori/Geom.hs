@@ -33,3 +33,6 @@ ptOnSegLine l pt = ptRelToSeg l pt == 0
 arePtsOnSameSideOfSeg :: Seg -> Pt -> Pt -> Bool
 arePtsOnSameSideOfSeg l p0 p1 = signum (ptRelToSeg l p0) == signum (ptRelToSeg l p1)
 
+ofold :: Seg -> OState -> OState
+ofold = undefined
+
