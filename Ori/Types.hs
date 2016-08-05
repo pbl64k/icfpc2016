@@ -15,13 +15,19 @@ data Seg = Seg !Pt !Pt
 
 type Segs = (Integer, [Seg])
 
-mkSeg :: Integer -> [Seg] -> Segs
-mkSeg = (,)
+mkSegs :: Integer -> [Seg] -> Segs
+mkSegs = (,)
 
 type Poly = (Integer, [Pt])
 
 mkPoly :: Integer -> [Pt] -> Poly
 mkPoly = (,)
+
+polyN :: Poly -> Integer
+polyN (n, _) = n
+
+polyPolys :: Poly -> [Pt]
+polyPolys (_, polys) = polys
 
 type Polys = (Integer, [Poly])
 

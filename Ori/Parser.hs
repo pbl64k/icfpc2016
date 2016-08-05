@@ -38,6 +38,12 @@ parseSeg = do
     p1 <- parsePt
     return (Seg p0 p1)
 
+parseSegs :: ReadP Segs
+parseSegs = do
+    n <- parseInteger
+    segs <- count (fromIntegral n) (skipSpaces >> parseSeg)
+    return (mkSegs n segs)
+
 parsePoly :: ReadP Poly
 parsePoly = do
     n <- parseInteger
