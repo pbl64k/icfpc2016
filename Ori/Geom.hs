@@ -47,7 +47,7 @@ mmod :: Rat -> Rat -> Rat
 mmod n m =
     if n >= 0 && n <= m
         then n
-        else mmod (if n < 0 then n + m else m - n) m
+        else mmod (if n <= 0 then n + m else m - n) m
 
 initxy' :: Rat -> Rat -> OState
 initxy' xw yh = (mkPoly (xsl * ysl) pts, (fcs', mkPoly (xsl * ysl) pts'))
@@ -57,7 +57,7 @@ initxy' xw yh = (mkPoly (xsl * ysl) pts, (fcs', mkPoly (xsl * ysl) pts'))
         xsl = length xs
         ysl = length ys
         pts = [V2 x y | y <- sq' yh, x <- sq' xw]
-        fcs = [mkFacet 4 [a, a + xsl, a + xsl + 1, a + 1] | xix <- [0 .. xsl - 1], yix <- [0 .. ysl - 1], let a = yix * xsl + xix]
+        fcs = [mkFacet 4 [a, a + xsl, a + xsl + 1, a + 1] | xix <- [0 .. xsl - 2], yix <- [0 .. ysl - 2], let a = yix * xsl + xix]
         fcs' = mkFacets (length fcs) fcs
         f (V2 x y) = V2 (mmod x xw) (mmod y yh)
         pts' = map f pts
