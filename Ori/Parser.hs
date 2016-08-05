@@ -36,7 +36,6 @@ parsePt = do
 parseSeg :: ReadP Seg
 parseSeg = do
     p0 <- parsePt
-    char ' '
     skipSpaces
     p1 <- parsePt
     return (Seg p0 p1)
@@ -58,4 +57,13 @@ parsePolys = do
     n <- parseInt
     polys <- count n (skipSpaces >> parsePoly)
     return (mkPolys n polys)
+
+parseProblem :: ReadP RawProblem
+parseProblem = do
+    polys <- parsePolys
+    skipSpaces
+    segs <- parseSegs
+    skipSpaces
+    eof
+    return (mkRp polys segs)
 

@@ -13,6 +13,9 @@ type Pt = V2 Rat
 
 data Seg = Seg !Pt !Pt
 
+instance Show Seg where
+    show (Seg p0 p1) = "Seg (" ++ show p0 ++ ") (" ++ show p1 ++ ")"
+
 type Segs = (Int, [Seg])
 
 mkSegs :: Int -> [Seg] -> Segs
@@ -33,6 +36,17 @@ type Polys = (Int, [Poly])
 
 mkPolys :: Int -> [Poly] -> Polys
 mkPolys = (,)
+
+polysN :: Polys -> Int
+polysN = fst
+
+polysPolys :: Polys -> [Poly]
+polysPolys = snd
+
+type RawProblem = (Polys, Segs)
+
+mkRp :: Polys -> Segs -> RawProblem
+mkRp = (,)
 
 type Facet = (Int, [Int])
 

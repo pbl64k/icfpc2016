@@ -18,8 +18,8 @@ showRat n =
 showPt :: Pt -> String
 showPt (V2 x y) = showRat x ++ "," ++ showRat y
 
-showPoly :: Poly -> String
-showPoly p = show (polyN p) ++ "\n" ++ intercalate "\n" (map showPt (polyPts p))
+showPoly :: Bool -> Poly -> String
+showPoly f p = (if f then show (polyN p) ++ "\n" else "") ++ intercalate "\n" (map showPt (polyPts p))
 
 showFacet :: Facet -> String
 showFacet f = show (facetN f) ++ " " ++ intercalate " " (map show (facetVertices f))
