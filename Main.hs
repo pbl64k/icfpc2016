@@ -18,11 +18,17 @@ main = do
     inp <- hGetContents stdin
     let rps = parse parseProblem inp
     let (xmin, ymin, xmax, ymax) = bBox (fst (head rps))
-    let xc = (xmax - xmin) / 2 + xmin
-    let yc = (ymax - ymin) / 2 + ymin
-    let xax = (xc - 1%2) / 2 + 1%2
-    let yax = (yc - 1%2) / 2 + 1%2
-    let s1 = reflEnd (Seg (V2 xax 0) (V2 xax 1)) initial
+    let xw = xmax - xmin
+    let yh = ymax - ymin
+    let xc = xw / 2 + xmin
+    let yc = yh / 2 + ymin
+    let xw'2 = (min xw 1) / 2
+    let yh'2 = (min yh 1) / 2
+    let xax = (xc - xw'2) / 2 + xw'2
+    let yax = (yc - yh'2) / 2 + yh'2
+    --hPutStrLn stderr $ show xw'2
+    --hPutStrLn stderr $ show yh'2
+    let s1 = reflEnd (Seg (V2 xax 0) (V2 xax 1)) (init' xw yh)
     let s2 = reflEnd (Seg (V2 0 yax) (V2 1 yax)) s1
     putStrLn $ showOState s2
 
