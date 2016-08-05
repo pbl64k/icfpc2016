@@ -9,7 +9,7 @@ import System.IO
 --    putStrLn $ show rps
 
 main = do
-    putStrLn $ showPoly True tr
-    putStrLn $ showFacets trf
-    putStrLn $ showPoly False tr
+    putStrLn $ showPoly True initPoly
+    putStrLn $ showFacets initFacets
+    putStrLn $ showPoly False initPoly
 

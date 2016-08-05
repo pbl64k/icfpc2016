@@ -70,3 +70,14 @@ facetsN = fst
 facetsFacets :: Facets -> [Facet]
 facetsFacets = snd
 
+type OState = (Poly, Facets)
+
+mkOState :: Poly -> Facets -> OState
+mkOState = (,)
+
+oStatePoly :: OState -> Poly
+oStatePoly = fst
+
+oStateFacets :: OState -> Facets
+oStateFacets = snd
+

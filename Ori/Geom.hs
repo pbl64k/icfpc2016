@@ -18,6 +18,18 @@ reflectPt (Seg p0@(V2 x0 y0) p1) (V2 x y) =
                 (a * (x - x0) + b * (y - y0) + x0)
                 (b * (x - x0) - a * (y - y0) + y0)
 
-isSym :: Seg -> Pt -> Pt -> Bool
-isSym l p0 p1 = p0 == reflectPt l p1
+ptRelToSeg :: Seg -> Pt -> Rat
+ptRelToSeg (Seg (V2 x0 y0) (V2 x1 y1)) (V2 x y) =
+    if x0 == x1
+        then x - x0
+        else
+            let
+                a = (y1 - y0) / (x1 - x0)
+                in y - y0 - a * (x - x0)
+
+ptOnSegLine :: Seg -> Pt -> Bool
+ptOnSegLine l pt = ptRelToSeg l pt == 0
+
+arePtsOnSameSideOfSeg :: Seg -> Pt -> Pt -> Bool
+arePtsOnSameSideOfSeg l p0 p1 = signum (ptRelToSeg l p0) == signum (ptRelToSeg l p1)
 

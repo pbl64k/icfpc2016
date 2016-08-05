@@ -4,7 +4,12 @@ module Ori.Misc (
 
 import Ori.Types
 
-tr = mkPoly 4 [V2 0 0, V2 1 0, V2 1 1, V2 0 1]
+initPoly :: Poly
+initPoly = mkPoly 4 [V2 0 0, V2 1 0, V2 1 1, V2 0 1]
 
-trf = mkFacets 1 [mkFacet 4 [0, 1, 2, 3]]
+initFacets :: Facets
+initFacets = mkFacets 1 [mkFacet 4 [0, 1, 2, 3]]
+
+initial :: OState
+initial = (initPoly, initFacets)
 
