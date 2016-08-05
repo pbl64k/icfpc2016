@@ -28,7 +28,7 @@ main = do
     let yax = (yc - yh'2) / 2 + yh'2
     --hPutStrLn stderr $ show xw'2
     --hPutStrLn stderr $ show yh'2
-    let s1 = reflEnd (Seg (V2 xax 0) (V2 xax 1)) (init' xw yh)
+    let s1 = reflEnd (Seg (V2 xax 0) (V2 xax 1)) (initxy' xw yh)
     let s2 = reflEnd (Seg (V2 0 yax) (V2 1 yax)) s1
     putStrLn $ showOState s2
 
