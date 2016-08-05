@@ -13,24 +13,46 @@ type Pt = V2 Rat
 
 data Seg = Seg !Pt !Pt
 
-type Segs = (Integer, [Seg])
+type Segs = (Int, [Seg])
 
-mkSegs :: Integer -> [Seg] -> Segs
+mkSegs :: Int -> [Seg] -> Segs
 mkSegs = (,)
 
-type Poly = (Integer, [Pt])
+type Poly = (Int, [Pt])
 
-mkPoly :: Integer -> [Pt] -> Poly
+mkPoly :: Int -> [Pt] -> Poly
 mkPoly = (,)
 
-polyN :: Poly -> Integer
-polyN (n, _) = n
+polyN :: Poly -> Int
+polyN = fst
 
-polyPolys :: Poly -> [Pt]
-polyPolys (_, polys) = polys
+polyPts :: Poly -> [Pt]
+polyPts = snd
 
-type Polys = (Integer, [Poly])
+type Polys = (Int, [Poly])
 
-mkPolys :: Integer -> [Poly] -> Polys
+mkPolys :: Int -> [Poly] -> Polys
 mkPolys = (,)
+
+type Facet = (Int, [Int])
+
+mkFacet :: Int -> [Int] -> Facet
+mkFacet = (,)
+
+facetN :: Facet -> Int
+facetN = fst
+
+facetVertices :: Facet -> [Int]
+facetVertices = snd
+
+type Facets = (Int, [Facet])
+
+mkFacets :: Int -> [Facet] -> Facets
+mkFacets = (,)
+
+facetsN :: Facets -> Int
+facetsN = fst
+
+facetsFacets :: Facets -> [Facet]
+facetsFacets = snd
 

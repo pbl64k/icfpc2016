@@ -9,6 +9,9 @@ import Text.ParserCombinators.ReadP
 parse :: ReadP a -> ReadS a
 parse = readP_to_S
 
+parseInt :: ReadP Int
+parseInt = readS_to_P (readsPrec 10)
+
 parseInteger :: ReadP Integer
 parseInteger = readS_to_P (readsPrec 10)
 
@@ -40,20 +43,19 @@ parseSeg = do
 
 parseSegs :: ReadP Segs
 parseSegs = do
-    n <- parseInteger
-    segs <- count (fromIntegral n) (skipSpaces >> parseSeg)
+    n <- parseInt
+    segs <- count n (skipSpaces >> parseSeg)
     return (mkSegs n segs)
 
 parsePoly :: ReadP Poly
 parsePoly = do
-    n <- parseInteger
-    pts <- count (fromIntegral n) (skipSpaces >> parsePt)
+    n <- parseInt
+    pts <- count n (skipSpaces >> parsePt)
     return (mkPoly n pts)
 
 parsePolys :: ReadP Polys
 parsePolys = do
-    n <- parseInteger
-    polys <- count (fromIntegral n) (skipSpaces >> parsePoly)
+    n <- parseInt
+    polys <- count n (skipSpaces >> parsePoly)
     return (mkPolys n polys)
-
 
