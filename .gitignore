@@ -4,3 +4,4 @@ shell/api_key
 .cabal-sandbox
 cabal.sandbox.config
 dist
+scratch
