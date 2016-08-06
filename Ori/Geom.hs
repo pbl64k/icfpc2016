@@ -79,3 +79,7 @@ reflEnd s (s1, (s2, end)) = (s1, (s2, fmap (fmap f) end))
 --tweak x = reflectPt (Seg (V2 0 0) (V2 (-1%1) (prime2%1))) (reflectPt (Seg (V2 0 0) (V2 (prime1%1) 1)) (reflectPt (Seg (V2 0 (2%1)) (V2 (2%1) 0)) x))
 tweak x = reflectPt (Seg (V2 0 0) (V2 (-1%1) (prime2%1))) (reflectPt (Seg (V2 0 0) (V2 (prime1%1) 1)) (reflectPt (Seg (V2 0 (3%1)) (V2 (3%1) 0)) x))
 
+tweakEnd x = reflEnd (Seg (V2 0 0) (V2 (-1%1) (prime2%1))) (reflEnd (Seg (V2 0 0) (V2 (prime1%1) 1)) x)
+
+smallTweakEnd x = reflEnd (Seg (V2 0 0) (V2 (-1%1) (smallPrime2%1))) (reflEnd (Seg (V2 0 0) (V2 (smallPrime1%1) 1)) x)
+
