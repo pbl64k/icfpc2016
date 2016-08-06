@@ -46,11 +46,15 @@ parseSegs = do
     segs <- count n (skipSpaces >> parseSeg)
     return (mkSegs n segs)
 
+parsePolyN :: Int -> ReadP Poly
+parsePolyN n = do
+    pts <- count n (skipSpaces >> parsePt)
+    return (mkPoly n pts)
+
 parsePoly :: ReadP Poly
 parsePoly = do
     n <- parseInt
-    pts <- count n (skipSpaces >> parsePt)
-    return (mkPoly n pts)
+    parsePolyN n
 
 parsePolys :: ReadP Polys
 parsePolys = do
@@ -66,4 +70,16 @@ parseProblem = do
     skipSpaces
     eof
     return (mkRp polys segs)
+
+parseOState :: ReadP OState
+parseOState = do
+    a <- parsePoly
+    skipSpaces
+    nf <- parseInt
+    fs <- count nf (skipSpaces >> parseInt >>= (\n -> count n (skipSpaces >> parseInt) >>= (\xs -> return $ mkFacet n xs)))
+    skipSpaces
+    b <- parsePolyN (polyN a)
+    skipSpaces
+    eof
+    return (a, (mkFacets nf fs, b))
 
