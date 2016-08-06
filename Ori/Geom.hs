@@ -47,7 +47,7 @@ mmod :: Rat -> Rat -> Rat
 mmod n m =
     if n >= 0 && n <= m
         then n
-        else mmod (if n <= 0 then n + m else m - n) m
+        else mmod (if n <= 0 then (-n) else m - (n - m)) m
 
 initxy' :: Rat -> Rat -> OState
 initxy' xw yh = (mkPoly (xsl * ysl) pts, (fcs', mkPoly (xsl * ysl) pts'))
