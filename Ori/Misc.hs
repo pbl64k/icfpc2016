@@ -3,7 +3,6 @@ module Ori.Misc (
     ) where
 
 import Ori.Types
-import Ori.Geom
 
 initPoly :: Poly
 initPoly = mkPoly 4 [V2 0 0, V2 1 0, V2 1 1, V2 0 1]
@@ -65,9 +64,4 @@ prime2 :: Integer
 --prime2 = 42012923523829189
 --prime2 = 244689765343477
 prime2 = 3308679658631953
-
---tweak x = reflectPt (Seg (V2 0 1) (V2 (prime2%1) 0)) (reflectPt (Seg (V2 0 0) (V2 (prime1%1) 1)) x)
---tweak x = reflectPt (Seg (V2 0 1) (V2 (prime2%1) 0)) (reflectPt (Seg (V2 0 0) (V2 (prime1%1) 1)) (reflectPt (Seg (V2 0 (5%1)) (V2 (1%1) (5%1))) x))
---tweak x = reflectPt (Seg (V2 0 0) (V2 (-1%1) (prime2%1))) (reflectPt (Seg (V2 0 0) (V2 (prime1%1) 1)) (reflectPt (Seg (V2 0 (2%1)) (V2 (2%1) 0)) x))
-tweak x = reflectPt (Seg (V2 0 0) (V2 (-1%1) (prime2%1))) (reflectPt (Seg (V2 0 0) (V2 (prime1%1) 1)) (reflectPt (Seg (V2 0 (3%1)) (V2 (3%1) 0)) x))
 

@@ -3,6 +3,7 @@ module Ori.Geom (
     ) where
 
 import Ori.Types
+import Ori.Misc
 import Data.List
 
 reflectPt :: Seg -> Pt -> Pt
@@ -33,9 +34,6 @@ ptOnSegLine l pt = ptRelToSeg l pt == 0
 
 arePtsOnSameSideOfSeg :: Seg -> Pt -> Pt -> Bool
 arePtsOnSameSideOfSeg l p0 p1 = signum (ptRelToSeg l p0) == signum (ptRelToSeg l p1)
-
---ofold :: Seg -> OState -> OState
---ofold = undefined
 
 sq :: Rat -> [Rat]
 sq x = iterate (+ x) 0
@@ -75,4 +73,9 @@ reflEnd :: Seg -> OState -> OState
 reflEnd s (s1, (s2, end)) = (s1, (s2, fmap (fmap f) end))
     where
         f = reflectPt s
+
+--tweak x = reflectPt (Seg (V2 0 1) (V2 (prime2%1) 0)) (reflectPt (Seg (V2 0 0) (V2 (prime1%1) 1)) x)
+--tweak x = reflectPt (Seg (V2 0 1) (V2 (prime2%1) 0)) (reflectPt (Seg (V2 0 0) (V2 (prime1%1) 1)) (reflectPt (Seg (V2 0 (5%1)) (V2 (1%1) (5%1))) x))
+--tweak x = reflectPt (Seg (V2 0 0) (V2 (-1%1) (prime2%1))) (reflectPt (Seg (V2 0 0) (V2 (prime1%1) 1)) (reflectPt (Seg (V2 0 (2%1)) (V2 (2%1) 0)) x))
+tweak x = reflectPt (Seg (V2 0 0) (V2 (-1%1) (prime2%1))) (reflectPt (Seg (V2 0 0) (V2 (prime1%1) 1)) (reflectPt (Seg (V2 0 (3%1)) (V2 (3%1) 0)) x))
 
