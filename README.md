@@ -42,7 +42,7 @@ it, and the only two options I'm even remotely familiar with are JS canvas (whic
 would be a pain to work with, and a pain to integrate, or so I felt) and Unity
 (c'mon, just humor me). So, no visualization.
 
-I spend the next few hours reading about various geometry algorithms, toying with the
+I spent the next few hours reading about various geometry algorithms, toying with the
 organizers' origami JS app, considering how to even attack the problem, putting
 together some types (looking at those, I didn't get enough sleep before the contest
 started) and parsers for standard formats. I wasn't making any progress, to be honest.
@@ -69,19 +69,19 @@ did not allow. I have to say ahead of time that I never figured this out in its
 entirety -- e.g., squash folds never even occurred to me -- but I did come up with a couple
 of problems that looked like they would be hard to solve for people who might think
 JS app's folds were all that was allowed. I encoded them by hand and submitted them as
-my first few problems for the lightning round. Judging by mid-contest stats, those
+my first few problems for the main round. Judging by mid-contest stats, those
 turned out to be reasonably resilient, as by that point there were only a couple of
 perfect solutions to those. Granted, that likely has changed by the end of the
 contest.
 
 As an aside, I was basically giving up on my lightning round rush at this point. Given
-the contest formula, an all out attack on lightning required ignoring the construction of
+the contest formula, an all-out attack on lightning required ignoring the construction of
 problems for the main round, at least with constrained resources involved in soloing.
-Well, jabber.ru did fine, or so it seems. I'm not Alexey, to put it mildly.
+Well, of course jabber.ru did fine, or so it seems. But I'm not Alexey, to put it mildly.
 
 While trying to make the problems more complicated to solve, I had a vague notion of
 using large primes to... (noise of mental breakdown) In hindsight, the idea was
-idiotic, or at least my exection of it was, but I ran with it for a while, and submitted
+idiotic, or at least my execution of it was, but I ran with it for a while, and submitted
 a bunch of problems that weren't any harder than the default unit square for any
 reasonable solver.
 
