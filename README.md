@@ -1,4 +1,4 @@
-= Team Zygohistomorphic Preproxenomorph, ICFP contest 2016 submission and post-mortem
+# Team Zygohistomorphic Preproxenomorph, ICFP contest 2016 submission and post-mortem
 
 Ranked 34th at the leaderboard freeze, probably top 50 in lightning, probably *not* top 50 in
 the main round.
