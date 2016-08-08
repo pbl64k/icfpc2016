@@ -87,10 +87,10 @@ reasonable solver.
 
 So having tinkered with all that for a while, I thought I needed to do a little
 better than simply submitting the unit square for the lightning round
-solutions. Well, at least here I did come up with an idiotic plan of sorts. Two things
+problems. Well, at least here I did come up with an idiotic plan of sorts. Two things
 occured to me:
 
-1. Translating the unit square such that its centre would match the centre of the
+1. Translating the unit square such that its centre would match the geometric centre of the
     target figure should help with the resemblance.
 2. Folding the square into a smaller rectangle matching in size the bounding box of
     the target figure should help even further.
@@ -125,7 +125,7 @@ hand and computing/guesstimating the destination coordinates manually. Thankfull
 server started returning useful information about problems with submitted solutions,
 as debugging would have been exceptionally hard otherwise.
 
-My main idea at this point was to reduce information available in the skeleton
+My main idea at this point was to reduce the information available in the skeleton
 descriptions, so I was trying to make heavily overlapped facets. As I was working on this
 by hand, I couldn't use many folds, as the number of vertices tends to grow exponentially.
 Still, I was reasonably satisfied with the result. While toying with the JS app I also
@@ -133,7 +133,7 @@ folded an isosceles triangle, and its skeleton looked weird enough to me that I 
 Apparently, the problem of folding any convex polygon is pretty trivial in reality, though.
 
 Finally, I started working on the downloader/solver glue. At this time I fell out of
-top 50, and the other two Latvian teams that I know of overcame me. Fixing up the
+the top 50, and the other two Latvian teams that I know of overcame me. Fixing up the
 script was pretty simple, of course, so I soon had my own "solver" churning through
 the problems. At this point I started steadily gaining ranks, and while I was preparing
 the last few problems by rotating/translating the ones I came up with previously, I
@@ -154,7 +154,7 @@ solutions to make a difference. So I decided to lay back and just enjoy the rest
 the ride.
 
 Surprisingly, the next day (T+54) started with me still in the top 30. The rank was
-fluctuating a bit around #25 far longer than I felt I deserved, but finally, close
+fluctuating a bit around #25 for far longer than I felt I deserved, but finally, close
 to the leaderboard freeze, I started falling like a rock, and at the freeze I
 was #34. With six hours to go and the rest of the teams using every dash of brains
 and computational power during the final sprint, I think my chances of staying in
